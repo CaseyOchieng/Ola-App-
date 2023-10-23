@@ -38,6 +38,13 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
+          title: const Text(
+            'OLA GALLERY',
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              color: Colors.black,
+            ),
+          ),
           leading: Builder(
             builder: (context) => IconButton(
               icon: const Padding(

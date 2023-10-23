@@ -23,7 +23,7 @@ class ShoeTile extends StatelessWidget {
           Image.asset(
             shoe.imagePath,
             fit: BoxFit.fitWidth,
-            height: 130,
+            height: 134,
             width: 220,
           ),
 
@@ -34,16 +34,18 @@ class ShoeTile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
+              // mainAxisSize: MainAxisSize.max,
               children: [
                 Text(
-                  shoe.description,
-                  style: const TextStyle(color: Colors.grey),
+                  shoe.name,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 30,
                 ),
-                //Spacer(),
                 // Shoe price
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -51,17 +53,25 @@ class ShoeTile extends StatelessWidget {
                     //The shoe name
                     Column(
                       children: [
+                        Text('Price: ' ' \$${shoe.price}'),
+                        const SizedBox(
+                          height: 3,
+                        ),
+                        //The add to cart button
                         Text(shoe.name),
                         //The shoe price
-                        Text('Price: ' ' \$${shoe.price}'),
-                        //The add to cart button
                       ],
                     ),
                     Container(
+                        margin: const EdgeInsets.only(
+                          right: 0,
+                          bottom: 4,
+                        ),
                         padding: const EdgeInsets.all(20),
                         decoration: const BoxDecoration(
-                          borderRadius:
-                              BorderRadius.only(topLeft: Radius.circular(12)),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12),
+                          ),
                           color: Colors.black,
                         ),
                         child: const Icon(
