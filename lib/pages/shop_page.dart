@@ -74,7 +74,7 @@ class _ShopPageState extends State<ShopPage> {
           SizedBox(
               height: 250,
               child: ListView.builder(
-                itemCount: 4,
+                itemCount: 10,
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (BuildContext context, int index) {
