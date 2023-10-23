@@ -36,15 +36,19 @@ class ShoeTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               // mainAxisSize: MainAxisSize.max,
               children: [
+                const SizedBox(
+                  height: 4,
+                ),
                 Text(
                   shoe.name,
                   style: const TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
+                    fontSize: 16,
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 22,
                 ),
                 // Shoe price
                 Row(
