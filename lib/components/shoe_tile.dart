@@ -20,11 +20,14 @@ class ShoeTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // shoe pic
-          Image.asset(
-            shoe.imagePath,
-            fit: BoxFit.fitWidth,
-            height: 134,
-            width: 220,
+          ClipRRect(
+            child: Image.asset(
+              shoe.imagePath,
+              fit: BoxFit.fill,
+              height: 134,
+              width: 220,
+              alignment: Alignment.topCenter,
+            ),
           ),
 
           const SizedBox(
@@ -62,7 +65,7 @@ class ShoeTile extends StatelessWidget {
                           height: 3,
                         ),
                         //The add to cart button
-                        Text(shoe.name),
+                        Text(shoe.description),
                         //The shoe price
                       ],
                     ),
