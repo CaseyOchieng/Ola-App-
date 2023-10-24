@@ -12,6 +12,18 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
+  void Function()? onTap;
+  void addShoeToCart(Shoe shoe) {
+    Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
+    showDialog(
+      context: context,
+      builder: (context) => const AlertDialog(
+        title: Text('Successfully Added !'),
+        content: Text('Check your cart'),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<Cart>(
@@ -76,17 +88,14 @@ class _ShopPageState extends State<ShopPage> {
             SizedBox(
                 height: 250,
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: value.getShoelist().length,
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
-                    Shoe shoe = Shoe(
-                        name: "Air-Jordan",
-                        price: "240",
-                        imagePath: "asset/image/3.jpg",
-                        description: "Men' 's shoes");
+                    Shoe shoe = value.getShoelist()[index];
                     return ShoeTile(
                       shoe: shoe,
+                      onTap: () => addShoeToCart(shoe),
                     );
                   },
                 )),

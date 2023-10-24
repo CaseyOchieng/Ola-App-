@@ -4,8 +4,9 @@ import 'package:ecomerce/models/shoe.dart';
 import 'package:flutter/material.dart';
 
 class ShoeTile extends StatelessWidget {
+  void Function()? onTap;
   Shoe shoe;
-  ShoeTile({super.key, required this.shoe});
+  ShoeTile({super.key, required this.shoe, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +24,10 @@ class ShoeTile extends StatelessWidget {
           ClipRRect(
             child: Image.asset(
               shoe.imagePath,
-              fit: BoxFit.fill,
+              fit: BoxFit.fitWidth,
               height: 134,
               width: 220,
-              alignment: Alignment.topCenter,
+              // alignment: Alignment.topCenter,
             ),
           ),
 
@@ -69,22 +70,25 @@ class ShoeTile extends StatelessWidget {
                         //The shoe price
                       ],
                     ),
-                    Container(
-                        margin: const EdgeInsets.only(
-                          right: 0,
-                          bottom: 4,
-                        ),
-                        padding: const EdgeInsets.all(20),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(12),
+                    GestureDetector(
+                      onTap: onTap,
+                      child: Container(
+                          margin: const EdgeInsets.only(
+                            right: 0,
+                            bottom: 4,
                           ),
-                          color: Colors.black,
-                        ),
-                        child: const Icon(
-                          Icons.add_shopping_cart,
-                          color: Colors.white,
-                        )),
+                          padding: const EdgeInsets.all(20),
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(12),
+                            ),
+                            color: Colors.black,
+                          ),
+                          child: const Icon(
+                            Icons.add_shopping_cart,
+                            color: Colors.white,
+                          )),
+                    ),
                   ],
                 )
               ],
