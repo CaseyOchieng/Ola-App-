@@ -32,8 +32,8 @@ class _CartItemState extends State<CartItem> {
         leading: Image.asset(widget.shoe.imagePath),
         title: Text(widget.shoe.name),
         subtitle: Text(widget.shoe.price.toString()),
-        trailing: const IconButton(
-          icon: Icon(Icons.delete),
+        trailing: IconButton(
+          icon: const Icon(Icons.delete),
           onPressed: removeItemFromCart,
         ),
       ),
