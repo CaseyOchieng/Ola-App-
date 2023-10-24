@@ -59,16 +59,19 @@ class ShoeTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     //The shoe name
-                    Column(
-                      children: [
-                        Text('Price: ' ' \$${shoe.price}'),
-                        const SizedBox(
-                          height: 3,
-                        ),
-                        //The add to cart button
-                        Text(shoe.description),
-                        //The shoe price
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Text('Price: ' ' \$${shoe.price}'),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          //The add to cart button
+                          Text(shoe.description),
+                          //The shoe price
+                        ],
+                      ),
                     ),
                     GestureDetector(
                       onTap: onTap,
